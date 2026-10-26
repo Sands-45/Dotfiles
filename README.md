@@ -1,5 +1,8 @@
 # Dotfiles
 
+<img width="1157" height="875" alt="image" src="https://github.com/user-attachments/assets/3100623e-c669-4c38-9de5-d45223345479" />
+
+
 My macOS terminal setup: **kitty**, **Neovim**, **Starship** and **eza**, all in the [Nord](https://www.nordtheme.com) palette. Inspired by [simonbs/dotfiles](https://github.com/simonbs/dotfiles) and the [shaunsingh/nord.nvim](https://github.com/shaunsingh/nord.nvim) look.
 
 ```
