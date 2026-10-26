@@ -15,9 +15,7 @@ return {
 				signcolumn = "no",
 			},
 			renderer = {
-				root_folder_label = function(path)
-					return vim.fn.fnamemodify(path, ":~") .. "/"
-				end,
+				root_folder_label = false,
 				highlight_git = false,
 				indent_markers = {
 					enable = true,
