@@ -1,7 +1,8 @@
 # Dotfiles
 
 <img width="1174" height="889" alt="image" src="https://github.com/user-attachments/assets/4d21c666-c0d3-46c9-9b25-74341b3c1f39" />
-![Uploading image.png…]()
+<img width="1169" height="864" alt="image" src="https://github.com/user-attachments/assets/932eaadc-41d1-429d-bb6d-0598d62026dd" />
+
 
 
 <br/>
