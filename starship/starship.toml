@@ -1,0 +1,181 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Rounded Nord segments with Nerd Font icons.
+# Conditional groups hide entire segments when their modules are empty.
+format = """
+$username$hostname$directory\
+([](fg:pink)$git_branch$git_commit$git_state$git_status[](fg:pink) )\
+$fill\
+$nodejs${custom.bun}$python$ruby$rust$golang$swift$terraform$kubernetes$aws$azure$gcloud$direnv$conda$nix_shell\
+$jobs$cmd_duration$status\
+$line_break$character"""
+add_newline = true
+palette = 'nord'
+
+[palettes.nord]
+foreground = '#eceff4'
+background = '#2e3440'
+surface = '#3b4252'
+comment = '#4c566a'
+cyan = '#88c0d0'
+green = '#a3be8c'
+orange = '#d08770'
+pink = '#b48ead'
+blue = '#81a1c1'
+red = '#bf616a'
+yellow = '#ebcb8b'
+
+[fill]
+symbol = ' '
+
+[username]
+style_user = 'bold blue'
+style_root = 'bold red'
+format = '[$user]($style) '
+
+[hostname]
+ssh_only = true
+style = 'bold blue'
+format = '[@$hostname]($style) '
+
+[directory]
+format = '[](fg:blue)[  $path$read_only ]($style)[](fg:blue) '
+style = 'bold fg:background bg:blue'
+truncation_length = 3
+truncate_to_repo = true
+read_only = ' '
+read_only_style = 'fg:background bg:blue'
+truncation_symbol = '…/'
+
+[git_branch]
+symbol = ''
+style = 'bold fg:background bg:pink'
+format = '[ $symbol $branch ]($style)'
+
+[git_commit]
+format = '[  $hash ]($style)'
+style = 'bold fg:background bg:pink'
+
+[git_state]
+format = '[ $state( $progress_current/$progress_total) ]($style)'
+style = 'bold fg:background bg:pink'
+
+[git_status]
+format = '[$all_status$ahead_behind]($style)'
+style = 'fg:background bg:pink'
+conflicted = '=$count '
+ahead = '↑$count '
+behind = '↓$count '
+diverged = '↑$ahead_count ↓$behind_count '
+untracked = '?$count '
+stashed = '*$count '
+modified = '~$count '
+staged = '+$count '
+renamed = '»$count '
+deleted = '-$count '
+
+[character]
+success_symbol = '[❯](bold green)'
+error_symbol = '[❯](bold red)'
+vimcmd_symbol = '[❮](bold green)'
+
+[cmd_duration]
+min_time = 3000
+format = ' [󱎫 $duration]($style)'
+style = 'yellow'
+
+[status]
+disabled = false
+symbol = '✘ '
+format = ' [$symbol$status]($style)'
+style = 'bold red'
+
+[jobs]
+format = ' [$symbol$number]($style)'
+symbol = ' '
+style = 'cyan'
+
+[nodejs]
+symbol = ' '
+style = 'fg:green bg:surface'
+format = ' [](fg:surface)[ $symbol$version ]($style)[](fg:surface)'
+
+[bun]
+disabled = true
+
+[python]
+symbol = ' '
+style = 'fg:yellow bg:surface'
+format = ' [](fg:surface)[ $symbol$version( $virtualenv) ]($style)[](fg:surface)'
+
+[ruby]
+symbol = ' '
+style = 'fg:red bg:surface'
+format = ' [](fg:surface)[ $symbol$version ]($style)[](fg:surface)'
+
+[rust]
+symbol = ' '
+style = 'fg:orange bg:surface'
+format = ' [](fg:surface)[ $symbol$version ]($style)[](fg:surface)'
+
+[golang]
+symbol = ' '
+style = 'fg:cyan bg:surface'
+format = ' [](fg:surface)[ $symbol$version ]($style)[](fg:surface)'
+
+[swift]
+symbol = ' '
+style = 'fg:orange bg:surface'
+format = ' [](fg:surface)[ $symbol$version ]($style)[](fg:surface)'
+
+[terraform]
+symbol = '󱁢 '
+style = 'fg:blue bg:surface'
+format = ' [](fg:surface)[ $symbol$workspace ]($style)[](fg:surface)'
+
+[kubernetes]
+disabled = false
+symbol = '󱃾 '
+style = 'fg:cyan bg:surface'
+format = ' [](fg:surface)[ $symbol$context( \($namespace\)) ]($style)[](fg:surface)'
+
+[aws]
+symbol = ' '
+style = 'fg:orange bg:surface'
+format = ' [](fg:surface)[ $symbol($profile)( \($region\)) ]($style)[](fg:surface)'
+
+[azure]
+disabled = false
+symbol = '󰠅 '
+style = 'fg:cyan bg:surface'
+format = ' [](fg:surface)[ $symbol$subscription ]($style)[](fg:surface)'
+
+[gcloud]
+disabled = true
+symbol = '󱇶 '
+style = 'fg:cyan bg:surface'
+format = ' [](fg:surface)[ $symbol$project ]($style)[](fg:surface)'
+
+[direnv]
+disabled = false
+symbol = ' '
+style = 'fg:orange bg:surface'
+format = ' [](fg:surface)[ $symbol$loaded/$allowed ]($style)[](fg:surface)'
+
+[conda]
+symbol = ' '
+style = 'fg:green bg:surface'
+format = ' [](fg:surface)[ $symbol$environment ]($style)[](fg:surface)'
+
+[nix_shell]
+symbol = ' '
+style = 'fg:cyan bg:surface'
+format = ' [](fg:surface)[ $symbol$name ]($style)[](fg:surface)'
+
+[custom.bun]
+command = "bun --version"
+when = true
+shell = ["sh"]
+symbol = ''
+style = 'fg:foreground bg:surface'
+format = ' [](fg:surface)[ $symbol v$output ]($style)[](fg:surface)'
