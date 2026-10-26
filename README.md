@@ -11,17 +11,17 @@ My macOS terminal setup in [Nord](https://www.nordtheme.com): **kitty**, **Neovi
 
 | | |
 | --- | --- |
-| `kitty/` | Nord colors, SF Mono, rounded pill tabs at the bottom, custom icon |
+| `kitty/` | Nord colors, JetBrains Mono Nerd Font, rounded pill tabs at the bottom, custom icon |
 | `nvim/` | lazy.nvim config with [nord.nvim](https://github.com/shaunsingh/nord.nvim), LSP, Telescope, nvim-tree |
 | `starship/` | Two-line prompt built from Nord pills |
-| `zsh/` | Starship + eza aliases, only inside kitty and Ghostty |
+| `rex/` | Nord color theme for [Rex](https://rex.superlogical.com), importable as a Ghostty theme |
+| `zsh/` | Starship + eza aliases, only inside kitty, Ghostty and Rex |
 
 ## Install
 
 ```sh
-brew install --cask kitty font-symbols-only-nerd-font
+brew install --cask kitty font-jetbrains-mono-nerd-font
 brew install neovim starship eza ripgrep fd lazygit
-cp /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SF-Mono-*.otf ~/Library/Fonts/
 
 git clone https://github.com/Sands-45/Dotfiles.git ~/Dotfiles
 ~/Dotfiles/install.sh

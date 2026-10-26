@@ -1,4 +1,4 @@
-if [[ -n "$GHOSTTY_RESOURCES_DIR" || -n "$KITTY_WINDOW_ID" ]]; then
+if [[ -n "$GHOSTTY_RESOURCES_DIR" || -n "$KITTY_WINDOW_ID" || "$TERM_PROGRAM" == rex ]]; then
   if command -v eza >/dev/null 2>&1; then
     alias ls='eza --icons=auto'
     alias ll='eza -lh --icons=auto'

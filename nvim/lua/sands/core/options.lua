@@ -1,7 +1,7 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
 vim.o.laststatus = 3
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 
 vim.api.nvim_create_autocmd("CmdlineEnter", {
 	group = vim.api.nvim_create_augroup("cmdheight_1_on_cmdlineenter", { clear = true }),

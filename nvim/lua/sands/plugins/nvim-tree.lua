@@ -57,6 +57,16 @@ return {
 			},
 		})
 
+		local cursor = vim.o.guicursor
+		vim.api.nvim_set_hl(0, "NvimTreeHiddenCursor", { blend = 100, nocombine = true })
+		vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "BufLeave", "WinLeave" }, {
+			group = vim.api.nvim_create_augroup("nvim_tree_cursor", { clear = true }),
+			callback = function(args)
+				local entering = args.event:find("Enter") and vim.bo[args.buf].filetype == "NvimTree"
+				vim.o.guicursor = entering and cursor .. ",n:block-NvimTreeHiddenCursor" or cursor
+			end,
+		})
+
 		local map = vim.keymap.set
 		map("n", "<C-d>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 		map("n", "<leader>r", "<cmd>NvimTreeFindFile<CR>", { desc = "Find current file in explorer" })
